@@ -2,6 +2,7 @@ version: "3"
 services:
   zabbix_db:
     image: mysql:5.7
+      - zabbix-db:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -44,4 +45,7 @@ services:
       - "10050"
     links:
       - zabbix_server
+
+volumes:
+   zabbix-db:
 
